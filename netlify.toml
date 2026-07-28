@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/"
+  to = "/aetheris/"
+  status = 200
+  force = true
