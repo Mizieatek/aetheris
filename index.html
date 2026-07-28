@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AETHERIS - Crystal Neon Matrix</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Three.js and OrbitControls -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+    <!-- 3D Viewport Container -->
+    <div id="canvas-container"></div>
+
+    <!-- Top HUD Bar -->
+    <div id="hud" class="hud-container">
+        <div class="hud-item">
+            <span class="hud-label">LEVEL</span>
+            <span id="level-val" class="hud-value">1</span>
+        </div>
+        <div class="hud-item">
+            <span class="hud-label">LINES</span>
+            <span id="lines-val" class="hud-value">0</span>
+        </div>
+        <div class="hud-item preview-item">
+            <span class="hud-label">NEXT</span>
+            <div id="next-preview" class="preview-box"></div>
+        </div>
+        <div class="hud-item">
+            <span class="hud-label">SCORE</span>
+            <span id="score-val" class="hud-value">0</span>
+        </div>
+        <div class="hud-item desktop-only">
+            <span class="hud-label">RECORD</span>
+            <span id="highscore-val" class="hud-value">0</span>
+        </div>
+        <button id="menu-btn" class="hud-btn-menu" aria-label="Open Menu">☰</button>
+    </div>
+
+    <!-- Mobile On-Screen Touch Controls -->
+    <div id="mobile-controls">
+        <div class="dpad">
+            <button class="touch-btn" id="btn-up">↻</button>
+            <div class="dpad-row">
+                <button class="touch-btn" id="btn-left">◄</button>
+                <button class="touch-btn" id="btn-down">▼</button>
+                <button class="touch-btn" id="btn-right">►</button>
+            </div>
+        </div>
+        <div class="action-btns">
+            <button class="touch-btn drop-btn" id="btn-drop">DROP</button>
+        </div>
+    </div>
+
+    <!-- Start Screen Overlay -->
+    <div id="start-screen" class="overlay-screen active">
+        <div class="menu-card glass-panel">
+            <h1 class="game-title">AETHERIS</h1>
+            <h2 class="game-subtitle">Crystal Neon Matrix</h2>
+            <p class="game-attribution">Inspired by the classic puzzle game Tetris</p>
+            <button id="start-btn" class="btn-cyber">START GAME</button>
+            <div class="controls-card">
+                <div><span>◄ ► / A D</span> : Move Left / Right</div>
+                <div><span>▲ / W</span> : Rotate Piece</div>
+                <div><span>▼ / S</span> : Soft Drop</div>
+                <div><span>SPACE</span> : Hard Drop</div>
+                <div><span>1-FINGER DRAG</span> : Rotate 3D View</div>
+                <div><span>2-FINGER PINCH</span> : Zoom View</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pause / Menu Overlay -->
+    <div id="pause-screen" class="overlay-screen">
+        <div class="menu-card glass-panel">
+            <h2 class="menu-title">PAUSED</h2>
+            <div class="menu-buttons">
+                <button id="resume-btn" class="btn-cyber">RESUME</button>
+                <button id="restart-pause-btn" class="btn-cyber">RESTART</button>
+                <button id="cam-reset-btn" class="btn-cyber">RESET CAMERA</button>
+                <button id="sfx-toggle-btn" class="btn-cyber">SFX: ON</button>
+                <button id="music-toggle-btn" class="btn-cyber">MUSIC: ON</button>
+                <button id="home-btn" class="btn-cyber btn-secondary">MAIN MENU</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div id="gameover-screen" class="overlay-screen">
+        <div class="menu-card glass-panel">
+            <h2 class="menu-title danger-title">GAME OVER</h2>
+            <div class="score-display">
+                <div class="hud-label">FINAL SCORE</div>
+                <div id="final-score" class="hud-value highlight-value">0</div>
+                <div id="new-high-label" class="high-score-banner">★ NEW HIGH SCORE ★</div>
+            </div>
+            <button id="restart-btn" class="btn-cyber">PLAY AGAIN</button>
+        </div>
+    </div>
+
+    <!-- FPS Counter -->
+    <div id="fps-display">FPS: 60</div>
+
+    <!-- Application Entry Module -->
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
