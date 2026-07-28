@@ -1,1 +1,3 @@
-/   /aetheris   302
+/aetheris    /index.html    200!
+/aetheris/*  /:splash       200!
+/            /aetheris      301
